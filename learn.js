@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGO)
 .then(()=>{
     console.log('database is connected');
 })
+.catch(()=>{console.log("please make sure what you are doing you know it")});
 
 // SCHEMA
 
