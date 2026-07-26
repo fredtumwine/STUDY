@@ -32,7 +32,7 @@ function Login() {
         if(data.role=="admin"){
             localStorage.setItem('name');
         }
-         else if(data.message =="incorrect credentials"){
+         else if(data.message =="incorrect credentialshfvhvgjdbkghtkhy4uyiohmdbj,wk.ljq;jIOYUKNG HYH/J;GH\/"){
             alert("incorrect credentials")
         }
         else{
