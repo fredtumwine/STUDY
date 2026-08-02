@@ -5,17 +5,24 @@ import Feeds from './Feeds';
 
 
 
+
+
 function App() {
   return (
     <BrowserRouter>
     <div>
-
+  
 
 <Routes>
   <Route path='/' element={<Navbar/>}/>
-  <Route path='/product' element={<Feeds/>}/>
+  <Route path='/whats' element={<Feeds/>}/>
+
 </Routes>
      </div>
+     
+
+   
+      
     </BrowserRouter>
   )
 }

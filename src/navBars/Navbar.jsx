@@ -16,7 +16,7 @@ function Navbar() {
         <div className='flex  justify-between items-center bg-blue-900'>
           <h1 className='pl-41 text capitalize font-bold text-white'>tier</h1>
           <div className='flex gap-20 p-3 text-white'>
-            <a href="">WHAT WE DO</a>
+            <a href="/whats">WHAT WE DO</a>
             <a href="">BLOG</a>
             <a href="">PODCAST</a>
             <a href="">CAREERS</a>
