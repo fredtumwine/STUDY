@@ -27,8 +27,73 @@ const slide = [
   container.slice(1,4)
 ];
 const [page,setPage] = useState(0);
+
+const [one,setOne] = useState(0);
+
+const prevSlide = ()=>{
+
+  setOne ((prev=>(prev -1 + container.length)%container.length)
+)}
+
+const nextSlide = ()=>{
+ setOne((prev=>(prev +1) %container.length));
+
+}
+useEffect(()=>{
+  const HandleC = (e)=>{
+    if(e.key == 'ArrowRight')nextSlide();
+    if(e.key == 'ArrowLeft')prevSlide();
+
+  };
+
+  window.addEventListener('keydown',HandleC)
+  return ()=> window.addEventListener('keydown',HandleC)
+
+},[]);
+useEffect(()=>{
+  const timer = setInterval(() => {
+    nextSlide();
+  }, 5000);
+  return()=>clearInterval(timer);
+})
   return (
+
+
     <div>
+
+
+
+       <div className='bg-cover bg-center w-full min-h-screen bg-no-repeat' style={{backgroundImage:`url(${container[one].image})`}}>
+
+
+       <button onClick={(nextSlide)} className='text-white border'>rigth</button>  
+       <button onClick={(prevSlide)}  className='text-white border'>left</button> 
+       <div className="flex justify-center gap-3 mt-5">
+
+{
+  container.map((_,index)=>(
+
+    <button
+      key={index}
+      onClick={()=>setOne(index)}
+      className={`
+        w-3 h-3 rounded-full
+        ${
+          one === index
+          ? "bg-green-600"
+          : "bg-gray-300"
+        }
+      `}
+    ></button>
+
+  ))
+}
+
+</div> 
+
+    </div>
+
+
      <div className='overflow-hidden'>
       <div className='flex min-w-full ' style={{transform:`translateX(-${page * 100}%)`}}>
         {
@@ -55,7 +120,11 @@ const [page,setPage] = useState(0);
         ))
       }
      </div>
+    
+   
+     
     </div>
+
   )
 }
 
